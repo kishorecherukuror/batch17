@@ -1,0 +1,21 @@
+<h1>Student Records</h1>
+<table border = 1px >
+	<tr><th>Name</th>
+		<th>Age</th>
+		<th>Address</th>
+		<th>Action</th></tr>
+		<% if @students.empty? %>
+			<tr><td>-- No Records Found --
+			<%= link_to 'new', students_new_path%></td></tr>
+		<% else %>
+		<% @students.each do |s| %>
+			<tr><td><%=s.name%></td>
+			<td><%=s.age%></td>
+			<td><%=s.address%></td>
+			<td><%= link_to 'show' , student_path(s) %>
+				<%= link_to 'delete', student_delete_path(s), :method => 'delete', :data => {:confirm => "Are you sure?"}%>
+				<%= link_to 'edit' , students_edit_path(s), :method => 'edit' %>
+			</td>
+		<% end %>
+		<% end %>
+</table>

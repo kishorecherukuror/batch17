@@ -1,0 +1,8 @@
+<h1>Update Student</h1>
+
+<%= form_for @edit , url: {:action => "update"} do |f| %>
+	Name: <%= f.text_field :name%><br /><br />
+	Age: <%= f.text_field :age %><br /><br />
+	Address: <%= f.text_area :address%><br /><br />
+	<%= f.submit %>
+<% end %>
