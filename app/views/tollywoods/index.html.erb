@@ -1,0 +1,38 @@
+<center><h1>This Is Header</h1></center>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tollywoods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Role</th>
+      <th>Star</th>
+      <th>Political</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tollywoods.each do |tollywood| %>
+      <tr>
+        <td><%= tollywood.name %></td>
+        <td><%= tollywood.age %></td>
+        <td><%= tollywood.role %></td>
+        <td><%= tollywood.star %></td>
+        <td><%= tollywood.political %></td>
+        <td><%= link_to 'Show', tollywood %></td>
+        <td><%= link_to 'Edit', edit_tollywood_path(tollywood) %></td>
+        <td><%= link_to 'Destroy', tollywood, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tollywood', new_tollywood_path %>
+
+<center><h1>This Is Footer</h1></center>

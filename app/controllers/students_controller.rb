@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :set_id, only: [:show, :edit, :update, :destroy]
   def new
     @student = Student.new
   end
@@ -6,12 +7,13 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to students_index_path(@student.id)
+      redirect_to students_path(@student.id)
+    else
+      render 'new'
     end
   end
 
   def show
-    @show = Student.find(params[:id])
   end
 
   def index
@@ -19,20 +21,17 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    @edit = Student.find(params[:id])
   end
 
-  def delete
-    @delete = Student.find(params[:id])
-    if @delete.destroy
-      redirect_to students_index_path
+  def destroy
+    if @student.destroy
+      redirect_to students_path
     end
   end
   
   def update
-    @edit = Student.find(params[:id])
     if @edit.update(student_params)
-      redirect_to students_index_path
+      redirect_to students_path
     end
     
   end
@@ -41,7 +40,10 @@ class StudentsController < ApplicationController
   private
   
   def student_params
-    params.require(:student).permit(:name,:age,:address)
+    params.require(:student).permit(:name,:age,:address,:fname,:lname)
+  end
+  def set_id
+    @student = Student.find(params[:id])
   end
 end
 

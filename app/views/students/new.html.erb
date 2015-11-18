@@ -1,8 +1,3 @@
 <h1>Create New Student</h1>
 
-<%= form_for @student , url: {:action => "create"} do |f| %>
-	Name: <%= f.text_field :name%><br /><br />
-	Age: <%= f.text_field :age %><br /><br />
-	Address: <%= f.text_area :address%><br /><br />
-	<%= f.submit %>
-<% end %>
+	<%= render 'form'%>

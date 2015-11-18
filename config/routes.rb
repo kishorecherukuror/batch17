@@ -1,20 +1,13 @@
 Rails.application.routes.draw do
-  get 'students/create'
-  
-  
-  get ':id', to: 'students#show', as: 'student'
-  
-  delete ':id', to: 'students#delete', as: 'student_delete'
-  post ':id', to: 'students#edit', as: 'students/edit'
-  get 'students/index'
-  post 'students/create' 
-  patch ':id', to: 'students#update', as: 'students_update'
- 
+  resources :teachers
+  resources :employees
+  resources :tollywoods
+  resources :students
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'students#new', as: 'students_new'
+  root 'employees#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

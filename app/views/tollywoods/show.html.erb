@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tollywood.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @tollywood.age %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @tollywood.role %>
+</p>
+
+<p>
+  <strong>Star:</strong>
+  <%= @tollywood.star %>
+</p>
+
+<p>
+  <strong>Political:</strong>
+  <%= @tollywood.political %>
+</p>
+
+<%= link_to 'Edit', edit_tollywood_path(@tollywood) %> |
+<%= link_to 'Back', tollywoods_path %>

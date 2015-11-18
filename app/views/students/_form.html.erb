@@ -1,0 +1,14 @@
+<%= form_for(@student) do |f| %>
+	<% if @student.errors.any? %>
+	<h2><%= pluralize(@student.errors.count, "error") %> prohibited this employee from being saved:</h2>
+		<% @student.errors.full_messages.each do |message|%>
+			<%= message %>
+		<% end %><br />
+	<% end %>
+	FirstName: <%= f.text_field :fname%><br /><br />
+	LastName: <%= f.text_field :lname%><br /><br />
+	Age: <%= f.text_field :age %><br /><br />
+	Address: <%= f.text_area :address%><br /><br />
+	
+	<%= f.submit %>
+<% end %>
